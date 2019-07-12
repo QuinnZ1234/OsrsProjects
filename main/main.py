@@ -5,6 +5,7 @@ BASE_URL = 'http://services.runescape.com/m=itemdb_oldschool'
 BASE_ENDPOINT = '/api/catalogue/detail.json?item='
 
 
+# main function
 def main():
 
     item_list = open_json('objects_87.json')
@@ -14,10 +15,9 @@ def main():
         for item in item_list:
             if user_in in item['name']:
                 item_info = get_item_info(item)
-                print("Item name: {}, Item Id: {}\nDescription: {}\nPrice: {}\n".format(
+                print("Item name: {}, Item Id: {}\nPrice: {}\n".format(
                     item_info['item']['name'],
                     item_info['item']['id'],
-                    item_info['item']['description'],
                     item_info['item']['current']['price']))
         user_in = input("Please search an item name: ")
 
